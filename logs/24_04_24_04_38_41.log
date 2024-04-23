@@ -1,0 +1,15 @@
+20--INFO--2024-04-24 04:38:42,281--data ingestion started
+27--INFO--2024-04-24 04:38:46,374--book data saved 
+31--INFO--2024-04-24 04:38:47,138--saved user data
+35--INFO--2024-04-24 04:38:48,968--saved rating data
+18--INFO--2024-04-24 04:38:49,025--trasnformation initiated
+21--INFO--2024-04-24 04:38:51,221--read book and rating data
+23--INFO--2024-04-24 04:38:51,867--merge book and rating dataset
+25--INFO--2024-04-24 04:38:52,190--drop book and rating dataset's null value
+28--INFO--2024-04-24 04:38:52,643--add new column rating frequency
+31--INFO--2024-04-24 04:38:53,082--add new column rating avg
+33--INFO--2024-04-24 04:38:53,191--merge columns rating_avg and rating_frquency
+35--INFO--2024-04-24 04:38:53,191--extarct row which rating frequency is more than 250 and that's why this is popular
+37--INFO--2024-04-24 04:38:53,191--extarct top 50 rows which rating frequency is more than 250 
+39--INFO--2024-04-24 04:38:53,301--merge top 50 data and real book data
+42--INFO--2024-04-24 04:38:53,301--get top 50 book's data
