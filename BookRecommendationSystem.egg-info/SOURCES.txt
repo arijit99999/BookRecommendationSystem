@@ -1,0 +1,5 @@
+setup.py
+BookRecommendationSystem.egg-info/PKG-INFO
+BookRecommendationSystem.egg-info/SOURCES.txt
+BookRecommendationSystem.egg-info/dependency_links.txt
+BookRecommendationSystem.egg-info/top_level.txt
