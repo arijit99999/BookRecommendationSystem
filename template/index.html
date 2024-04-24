@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 >Top 50 Books</h1>
+    <br>
+ {% for i in range(book_name|length) %}
+                            <img src="{{ image[i] }}">
+                           <h2>{{ book_name[i] }}</h2>
+                            <h5>Author - {{ author[i] }}</h5>
+                            <h5>Votes - {{ vote[i] }}</h5>
+                            <h5>Rating - {{ rating[i] }}</h5>
+                     {% endfor %}
+</body>
+</html>

@@ -8,7 +8,7 @@ from src.BookRecommendationSystem.exception import customexception
 
 
 
-def save_object(file_path, obj):
+def save_object(obj,file_path):
     try:
          dir_path = os.path.dirname(file_path)
          os.makedirs(dir_path, exist_ok=True)

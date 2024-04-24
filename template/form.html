@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/resultop" method="post">
+        <input type="text" id="user_input" name="user_input" placeholder="Enter book name">
+        <br>
+        <input type="submit" >
+    </form>
+
+    {% if data %}
+
+             {% for i in data %}
+                            <img class="card-img-top" src="{{i[2]}}">
+                            <h1><b>{{i[0]}}</b><h1>
+                            <h4> Author - {{i[1]}}</h4>
+             {% endfor %}
+
+            {% endif %}
+</body>
+</html>

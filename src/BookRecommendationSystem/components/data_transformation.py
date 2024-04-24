@@ -8,10 +8,10 @@ import numpy as np
 from src.BookRecommendationSystem.utlis.utils import save_object
 
 class datatransformationconfig:
-    top50=os.path.join("artifacts","top50.pkl")
+    top50=os.path.join("artifacts","top50.csv")
 class data_transformation:
     def __init__(self):
-        self.top50=datatransformationconfig()
+        self.top50_path=datatransformationconfig()
         
     def data_transform_initiated(self,book,rating):
        try:
@@ -40,7 +40,7 @@ class data_transformation:
           final50=popular_book50.drop_duplicates('Book-Title')
           final50=final50[['Book-Title','Image-URL-M','Book-Author','rating_count','rating_avg']]
           logging.info("get top 50 book's data")
-          topbook=pickle.dump(final50,open(self.top50.top50,'wb'))
+          topbook=final50.to_csv(self.top50_path.top50,index=False)
           return topbook
           logging.info("get top50.pkl")
        except Exception as e:
