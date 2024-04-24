@@ -3,14 +3,14 @@ import pickle
 import os
 import pandas as pd
 from flask import Flask, render_template,request
-from src.BookRecommendationSystem.utlis.utils import load_object
+import warnings
+warnings.filterwarnings('ignore')
 import numpy as np
 
 top50=pd.read_csv(r'C:\Users\deyar\OneDrive\Desktop\BookRecommendationSystem\artifacts\top50.csv')
-with  open('model.pkl','rb') as file:
- similarity=pickle.load(file)
+similarity=pickle.load(open('model.pkl','rb'))
 book=pd.read_csv(r'C:\Users\deyar\OneDrive\Desktop\BookRecommendationSystem\artifacts\book.csv')
-data=pd.read_csv(r'C:\Users\deyar\OneDrive\Desktop\BookRecommendationSystem\artifacts\data.csv')
+final_data=pickle.load(open('data.pkl','rb'))
 app=Flask(__name__,template_folder='template')
 @app.route('/')
 def index():
@@ -24,20 +24,22 @@ def index():
 @app.route('/result')
 def form():
           return render_template('form.html')
+
+
 @app.route('/resultop',methods=['post'])
 def form1():
-         user_input = request.form.get('user_input')
-         index=np.where(data.index==user_input)[0][0]
-         similar=sorted(list(enumerate(similarity[index])),key=lambda x:x[1],reverse=True)[1:6]
-         res=[]
-         for i in similar:
+  user_input = str(request.form.get('user_input'))
+  index=np.where(final_data.index==user_input)[0][0]
+  similar=sorted(list(enumerate(similarity[index])),key=lambda x:x[1],reverse=True)[1:5]
+  data=[]
+  for i in similar:
            item=[]
-           temp=book[book['Book-Title']==data.index[i[0]]]
+           temp=book[book['Book-Title']==final_data.index[i[0]]]
            item.extend(temp.drop_duplicates('Book-Title')['Book-Title'].values)
            item.extend(temp.drop_duplicates('Book-Title')['Book-Author'].values)
            item.extend(temp.drop_duplicates('Book-Title')['Image-URL-M'].values)
-           res.append(item)
-         return render_template('form.html',data=res)
+           data.append(item)
+  return  render_template('form.html',data=data)
 if __name__=="__main__":
  app.run(debug=True)
 

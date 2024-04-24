@@ -17,7 +17,7 @@ class ModelTrainer:
     
     def initate_model_training(self):
         try:
-            data=pd.read_csv(r'C:\Users\deyar\OneDrive\Desktop\BookRecommendationSystem\artifacts\data.csv')
+            data=pickle.load(open('data.pkl','rb'))
             similarity=cosine_similarity(data) 
             save_object(obj=similarity,file_path=self.model_trainer_config.trained_model_file_path)
             logging.info('model saved')

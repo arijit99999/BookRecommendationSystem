@@ -5,9 +5,10 @@ import pickle
 from src.BookRecommendationSystem.logger import logging
 from src.BookRecommendationSystem.exception import customexception
 import numpy as np
+from src.BookRecommendationSystem.utlis.utils import save_object
 
 class datatransformationconfig:
-    data=os.path.join("artifacts","data.csv")
+    data=os.path.join("artifacts","data.pkl")
 class data_transformation2:
     def __init__(self):
         self.allpath=datatransformationconfig()
@@ -36,7 +37,7 @@ class data_transformation2:
           logging.info("get data where users gave atlist 200 ratings and book has atleast 50 rating")
           data=final_data2.pivot_table(index='Book-Title',columns='User-ID',values='Book-Rating')
           data.fillna(0,inplace=True)
-          data.to_csv(self.allpath.data,index=False)
+          save_object(obj=data,file_path=self.allpath.data)
           return self.allpath.data
           logging.info("get final data for model training")
        except Exception as e:

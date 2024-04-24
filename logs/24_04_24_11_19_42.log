@@ -1,0 +1,22 @@
+20--INFO--2024-04-24 11:19:43,624--data ingestion started
+27--INFO--2024-04-24 11:19:46,209--book data saved 
+31--INFO--2024-04-24 11:19:46,666--saved user data
+35--INFO--2024-04-24 11:19:47,790--saved rating data
+18--INFO--2024-04-24 11:19:47,852--trasnformation initiated
+21--INFO--2024-04-24 11:19:49,446--read book and rating data
+23--INFO--2024-04-24 11:19:50,070--merge book and rating dataset
+25--INFO--2024-04-24 11:19:50,369--drop book and rating dataset's null value
+28--INFO--2024-04-24 11:19:50,780--add new column rating frequency
+31--INFO--2024-04-24 11:19:51,208--add new column rating avg
+33--INFO--2024-04-24 11:19:51,299--merge columns rating_avg and rating_frquency
+35--INFO--2024-04-24 11:19:51,299--extarct row which rating frequency is more than 250 and that's why this is popular
+37--INFO--2024-04-24 11:19:51,299--extarct top 50 rows which rating frequency is more than 250 
+39--INFO--2024-04-24 11:19:51,424--merge top 50 data and real book data
+42--INFO--2024-04-24 11:19:51,424--get top 50 book's data
+18--INFO--2024-04-24 11:19:51,533--trasnformation initiated
+21--INFO--2024-04-24 11:19:52,949--read book and rating data
+23--INFO--2024-04-24 11:19:53,539--merge book and rating dataset
+25--INFO--2024-04-24 11:19:53,805--drop book and rating dataset's null value
+31--INFO--2024-04-24 11:19:53,898--get data where users gave atlist 200 ratings
+37--INFO--2024-04-24 11:19:54,156--get data where users gave atlist 200 ratings and book has atleast 50 rating
+17--INFO--2024-04-24 11:19:54,205--pickle dump succesfully
